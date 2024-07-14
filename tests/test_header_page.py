@@ -33,7 +33,7 @@ class TestMainPage:
         dzen_page = DzenPage(driver)
         header_page.yandex_logo_click()
         header_page.go_to_new_tab()
-        dzen_page.find_and_wait_locator(DzenPageLocators.logo_dzen)
+        dzen_page.find_and_wait_locator(DzenPageLocators.LOGO_DZEN)
         current_url = header_page.get_current_url()
         assert current_url == Urls.DZEN_URL and dzen_page.check_element_main_button()
 
@@ -42,7 +42,7 @@ class TestMainPage:
                         2)Кликаем на вопрос;
                         3)Получаем текст ответа на выбранный вопрос;
                         4)Сравниваем полученный текст с ожидаемым''')
-    @pytest.mark.parametrize('question_locator, question_text_locator, expected_question_text', zip(HomePageLocators.questions, HomePageLocators.questions_text, Questions.expected_question_text))
+    @pytest.mark.parametrize('question_locator, question_text_locator, expected_question_text', zip(HomePageLocators.QUESTIONS, HomePageLocators.QUESTIONS_TEXT, Questions.expected_question_text))
     def test_accordeon(self, driver, question_locator, question_text_locator, expected_question_text):
         home_page = HomePage(driver)
         text = home_page.get_text_question(question_locator, question_text_locator)

@@ -8,4 +8,4 @@ class DzenPage(BasePage):
 
     @allure.step('Проверка отображения кнопки "Главная" на странице DZEN')
     def check_element_main_button(self):
-        return WebDriverWait(self.driver, 5).until(EC.presence_of_element_located(DzenPageLocators.main_button_dzen))
+        return WebDriverWait(self.driver, 5).until(EC.presence_of_element_located(DzenPageLocators.MAIN_BUTTON_DZEN))

@@ -8,28 +8,28 @@ from pages.base_page import BasePage
 class HomePageHeader(BasePage):
     @allure.step('Клик по логотипу Яндекса')
     def yandex_logo_click(self):
-        self.click_button(HomePageHeaderLocators.logo_yandex)
+        self.click_button(HomePageHeaderLocators.LOGO_YANDEX)
 
     @allure.step('Клик по логотипу Самоката')
     def scooter_logo_click(self):
-        self.click_button(HomePageHeaderLocators.logo_scooter)
+        self.click_button(HomePageHeaderLocators.LOGO_SCOOTER)
 
     @allure.step('Клик по кнопке Заказать')
     def order_button_click(self):
-        self.click_button(HomePageHeaderLocators.order_button)
+        self.click_button(HomePageHeaderLocators.ORDER_BUTTON)
 
     @allure.step('Клик по кнопке Статус заказа')
     def status_order_click(self):
-        self.click_button(HomePageHeaderLocators.order_status_button)
+        self.click_button(HomePageHeaderLocators.ORDER_STATUS_BUTTON)
 
     @allure.step('Заполнение формы номера заказа')
     def send_number_order_to_track_field(self, number):
         self.status_order_click()
-        self.send_keys_to_field(HomePageHeaderLocators.number_order_field, number)
+        self.send_keys_to_field(HomePageHeaderLocators.NUMBER_ORDER_FIELD, number)
 
     @allure.step('Нажатие на кнопку Go!')
     def go_button_click(self):
-        self.click_button(HomePageHeaderLocators.go_button)
+        self.click_button(HomePageHeaderLocators.GO_BUTTON)
 
     @allure.step('Заполнение формы номера заказа и клик на кнопку Go!')
     def check_order_status(self, number):
@@ -39,23 +39,23 @@ class HomePageHeader(BasePage):
 
     @allure.step('Проверка отображения надписи - "Учебный проект"')
     def check_order_title(self):
-        return self.find_and_wait_locator(HomePageHeaderLocators.header_page_title).is_displayed()
+        return self.find_and_wait_locator(HomePageHeaderLocators.HEADER_PAGE_TITLE).is_displayed()
 
 
 class HomePage(BasePage):
 
     @allure.step('Принять куки')
     def accept_cookie_home_page(self):
-        self.click_button(HomePageLocators.accept_cookies_button)
+        self.click_button(HomePageLocators.ACCEPT_COOKIES_BUTTON)
 
     @allure.step('Скролл и клик на кнопку Заказать')
     def scroll_and_click_on_the_order_button(self):
-        self.scroll_to_locator(HomePageLocators.order_button)
-        self.click_button(HomePageLocators.order_button)
+        self.scroll_to_locator(HomePageLocators.ORDER_BUTTON)
+        self.click_button(HomePageLocators.ORDER_BUTTON)
 
     @allure.step('Переход к списку вопросов')
     def scroll_to_questions(self):
-        self.scroll_to_locator(HomePageLocators.questions_title)
+        self.scroll_to_locator(HomePageLocators.QUESTIONS_TITLE)
 
     @allure.step('Клик на вопрос')
     def click_question_button(self, question_button_locator):
