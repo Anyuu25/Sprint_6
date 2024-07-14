@@ -5,6 +5,7 @@ import pytest
 from data import Questions
 from urls import Urls
 from locators.home_page_locators import HomePageLocators
+from locators.dzen_page_locators import DzenPageLocators
 from pages.home_page import HomePage, HomePageHeader
 from pages.dzen_page import DzenPage
 
@@ -32,7 +33,7 @@ class TestMainPage:
         dzen_page = DzenPage(driver)
         header_page.yandex_logo_click()
         header_page.go_to_new_tab()
-        time.sleep(5)
+        dzen_page.find_and_wait_locator(DzenPageLocators.logo_dzen)
         current_url = header_page.get_current_url()
         assert current_url == Urls.DZEN_URL and dzen_page.check_element_main_button()
 

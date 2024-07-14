@@ -1,6 +1,3 @@
-from random import randint
-
-
 class Users:
     user = {
         1: 'Максим',
